@@ -31,6 +31,10 @@
 
 #define ETH_LOC_BUFFER_MAX_LOCONET_TX     20          /**< Max number of tries * LN_TX_RETRIES_MAX !! */
 
+#define SENDINGIDLE 0
+#define SENDINGDATA 1
+#define SENDINGOK 2
+
 /*
  *******************************************************************************************
  * Types
@@ -45,7 +49,6 @@
 
 
 static LnBuf      EthLocBufferLocoNet;                /**< Loconet buffer */
-static uint8_t    EthLocBufferTcpContinue;            /**< Process next Loconet message */
 static uint8_t    EthLocBufferTcpIpRocRail;           /**< Index for TcpIp transmit */
 static uint8_t    EthLocBufferUipTimerCounter;        /**< Timer counter for uip handling */
 static uint8_t    EthLocBufferUipArpTimerCounter;     /**< Timer counter for uip Arp handling */
@@ -57,12 +60,14 @@ static LnBuf        LnTxBuffer;
 static uint8_t sendOk=0;
 static uint8_t sendData=0;
 
-static char dataData[60];
+static char dataData[70];
 static uint8_t sendDataLen;
 
 const char sentokstring[]="SENT OK \r\n";
 const char digitMap[] = "0123456789abcdef";
 const char receiveString[] = "RECEIVE ";
+
+static uint8_t sendingState=SENDINGIDLE;
 
 /*
  *******************************************************************************************
@@ -128,8 +133,7 @@ static void EthLocBufferTransmitGlobalPowerOff(void)
    LN_STATUS                               TxStatus = LN_DONE;
    lnMsg                                   LocoNetSendPacket;
    uint8_t                                 TxMaxCnt = 0;
-
-   EthLocBufferTcpContinue = 255;
+   
    EthLocBufferTcpIpRocRail = 255;
 
    /* Transmit Power Off on Loconet */
@@ -166,14 +170,14 @@ void EthLocBufferInit(void)
    /* Init loconet */
    initLocoNet(&EthLocBufferLocoNet);
 
-   /* Set used variables to initial values */
-   EthLocBufferTcpContinue = 0;
+   /* Set used variables to initial values */   
    EthLocBufferTcpIpRocRail = 255;
    EthLocBufferUipTimerCounter = 0;
    EthLocBufferUipArpTimerCounter = 0;   
    sendOk=0;
    sendData=0;
    sendDataLen=0;
+   sendingState=SENDINGIDLE;
 }
 
 /**
@@ -189,22 +193,21 @@ void EthLocBufferInit(void)
 void EthLocBufferMain(void)
 {
 	
-   lnMsg  *RxPacket;
-
+   lnMsg  *RxPacket;	
 	
-	
-   /* If no TCPIP connection discard all received Loconet data */
-   if (EthLocBufferTcpIpRocRail == 255)
-   {			
+    /* If no TCPIP connection discard all received Loconet data */
+    if (EthLocBufferTcpIpRocRail == 255)
+    {			
         RxPacket = recvLocoNetPacket();
 		if (RxPacket)
 		{
 			UserIoSetLed(userIoLed6, userIoLedSetFlash);
 		}
 		return;
-   }
+    }
    
-    if (EthLocBufferTcpContinue == 1)
+	//Check there is no data pending to send
+    if (sendData == 0)
     {		
 		RxPacket = recvLocoNetPacket();
 		if (RxPacket)
@@ -229,10 +232,8 @@ void EthLocBufferMain(void)
 			dataData[MsgIdx++] = 0xA;
 			dataData[MsgIdx] = '\0';
 		
-			sendDataLen = MsgIdx;   
-							
+			sendDataLen = MsgIdx;   	
 			sendData=1;
-			EthLocBufferTcpContinue = 0;	  
 		}
 	}
 }
@@ -253,67 +254,18 @@ void EthLocBufferTcpRcvEthernet(void)
    {
       /* Connection ended */
       EthLocBufferTransmitGlobalPowerOff();
-	  return;
    }
 
    if (uip_connected())
    {
-      /* If connection to RocRail present allow forwarding of Loconet data from Loconet bus to TCPIP. */
-      EthLocBufferTcpContinue = 1;
+      /* If connection to RocRail present allow forwarding of Loconet data from Loconet bus to TCPIP. */      
       EthLocBufferTcpIpRocRail = 1;
 	  UserIoSetLed(userIoLed4, userIoLedSetOff);
       UserIoSetLed(userIoLed5, userIoLedSetOff);	  
-	  return;
    }
 
-   if (uip_acked())
+   if (uip_newdata())
    {
-		//SerialTransmit("Ack\r\n");
-		if (sendOk==1)
-		{
-			sendOk=0;
-			UserIoSetLed(userIoLed4, userIoLedSetOff);			
-		}
-		else if (sendData==1)
-		{
-			sendData=0;
-			UserIoSetLed(userIoLed5, userIoLedSetOff);						
-		}
-		
-		if (sendOk==0 && sendData==0)
-		{
-			EthLocBufferTcpContinue = 1;
-		}
-		else
-		{
-			EthLocBufferTcpContinue = 0;
-		}
-		
-   }
-
-   if (uip_rexmit())
-   {
-      /* Retransmit last transmitted data */
-      if (sendOk==1)
-      {
-		 UserIoSetLed(userIoLed4, userIoLedSetOn);		 
-         uip_send(sentokstring, 10);
-		 EthLocBufferTcpContinue = 2;        
-      }
-	  else if (sendData==1)
-	  {	    
-		UserIoSetLed(userIoLed5, userIoLedSetOn);
-		uip_send(dataData, sendDataLen);
-		EthLocBufferTcpContinue = 2;
-	  }
-	  return;
-   }
-
-   if (uip_newdata() && EthLocBufferTcpContinue == 1)
-   {
-      /* Check if received data is Loconet format */
-      if (uip_datalen() != 0)
-      {
 		 /* Convertimos de ASCII a formato de loconet para enviar */
 		uint8_t indice=0;
 		for (indice=0; indice<uip_datalen(); indice++)
@@ -338,7 +290,6 @@ void EthLocBufferTcpRcvEthernet(void)
 				case 'F':
 					ProcessTCPRxByte(0x37, (uint8_t)uip_appdata[indice]);
 					break;
-
 				case ' ':
 					/* Do nothing */
 					break;
@@ -349,18 +300,15 @@ void EthLocBufferTcpRcvEthernet(void)
 						IdenFound = 0;
 					}
 					break;
-
 				case 'E':
 					if(IdenFound == 1)
 						ProcessTCPRxByte(0x37, (uint8_t)uip_appdata[indice]);
 					else
 						IdenBytes++;
 					break;
-
 				case 'N':
 					IdenBytes++;
 					break;
-
 				case 'D':
 					if(IdenFound == 1)
 					{
@@ -375,37 +323,61 @@ void EthLocBufferTcpRcvEthernet(void)
 						IdenBytes = 0;
 					}
 					break;
-
 				default:
 					if (IdenFound == 1)
 					{
 						IdenFound = 0;
 						IdenBytes = 0;	
-						sendOk=1;
-						EthLocBufferTcpContinue=0;
+						sendOk+=1;						
 					}
 					break;
 			}
 		}
-		
-      }
    }
 
-   if (uip_poll())
-   {
-      /* If Loconet data present from Loconet bus transmit it... */
-      if (sendOk==1 && EthLocBufferTcpContinue == 0)
-      {
-         //SerialTransmit("Tx\r\n");		 
-		 UserIoSetLed(userIoLed4, userIoLedSetOn);		 
-         uip_send(sentokstring, 10);
-		 EthLocBufferTcpContinue = 2;
-      }
-	  else if (sendData==1 && EthLocBufferTcpContinue == 0)
-	  {	    
-		UserIoSetLed(userIoLed5, userIoLedSetOn);
-		uip_send(dataData, sendDataLen);
-		EthLocBufferTcpContinue = 2;
-	  }
-   }
+	if (uip_acked())
+	{		
+		if (sendingState == SENDINGOK)
+		{
+			sendOk-=1;
+			UserIoSetLed(userIoLed4, userIoLedSetOff);
+			sendingState=SENDINGIDLE;
+		}
+		if (sendingState == SENDINGDATA)
+		{
+			sendData=0;
+			UserIoSetLed(userIoLed5, userIoLedSetOff);						
+			sendingState=SENDINGIDLE;
+		}		
+	}
+   
+	if (uip_poll() || uip_rexmit() || uip_newdata() || uip_acked())
+	{
+		if (sendingState==SENDINGIDLE)
+		{
+			/* If Loconet data present from Loconet bus transmit it... */
+			if (sendOk>0)
+			{	 
+				sendingState=SENDINGOK;
+			}
+			else if (sendData==1)
+			{	    
+				sendingState=SENDINGDATA;
+			}
+		}
+		
+		if (sendingState==SENDINGOK)
+		{
+			UserIoSetLed(userIoLed4, userIoLedSetOn);		 
+			uip_send(sentokstring, 10);
+		}
+		if (sendingState==SENDINGDATA)
+		{
+			UserIoSetLed(userIoLed5, userIoLedSetOn);
+			uip_send(dataData, sendDataLen);
+		}
+		
+		
+		
+	}
 }
