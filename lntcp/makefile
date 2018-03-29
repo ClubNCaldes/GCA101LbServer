@@ -21,7 +21,7 @@ ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp -Wall
 ISP=usbasp
 PORT=/dev/usb/ttyUSB0
 
-APPLICATION = MGV101
+APPLICATION = GCA101LBS
 
 #-------------------
 .PHONY: all

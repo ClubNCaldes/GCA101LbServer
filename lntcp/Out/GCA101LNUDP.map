@@ -1,0 +1,890 @@
+Archive member included because of file (symbol)
+
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o (exit)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                              Out/EthLocBuffer.o (__do_copy_data)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                              Out/EthLocBuffer.o (__do_clear_bss)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
+                              Out/ln_buf.o (memcpy)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+                              Out/uip_arp.o (memset)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega328p.o)
+                              Out/UserIo.o (__eerd_byte_m328p)
+
+Allocating common symbols
+Common symbol       size              file
+
+lnTxSuccess         0x1               Out/ln_sw_uart.o
+lnTxIndex           0x1               Out/ln_sw_uart.o
+lnTxLength          0x1               Out/ln_sw_uart.o
+uip_len             0x2               Out/uip.o
+TcpIpUipTimerCounter
+                    0x1               Out/TcpIp.o
+uip_sappdata        0x2               Out/uip.o
+uip_acc32           0x4               Out/uip.o
+NextPacketPtr       0x2               Out/enc28j60.o
+uip_flags           0x1               Out/uip.o
+UserIoLedStat       0x6               Out/UserIo.o
+lnCurrentByte       0x1               Out/ln_sw_uart.o
+lnCompareTarget     0x2               Out/ln_sw_uart.o
+uip_appdata         0x2               Out/uip.o
+uip_conn            0x2               Out/uip.o
+lnRxBuffer          0x2               Out/ln_sw_uart.o
+uip_conns           0x1d              Out/uip.o
+uip_arp_netmask     0x4               Out/uip.o
+lnState             0x1               Out/ln_sw_uart.o
+Enc28j60Bank        0x1               Out/enc28j60.o
+uip_listenports     0x6               Out/uip.o
+TcpIpUipArpTimerCounter
+                    0x2               Out/TcpIp.o
+lnBitCount          0x1               Out/ln_sw_uart.o
+lnTxData            0x2               Out/ln_sw_uart.o
+uip_hostaddr        0x4               Out/uip.o
+uip_arp_draddr      0x4               Out/uip.o
+uip_buf             0xca              Out/uip.o
+uip_slen            0x2               Out/uip.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+LOAD Out/Main.o
+LOAD Out/EthLocBuffer.o
+LOAD Out/enc28j60.o
+LOAD Out/uip.o
+LOAD Out/uip_arch.o
+LOAD Out/uip_arp.o
+LOAD Out/delay.o
+LOAD Out/nic.o
+LOAD Out/UserIo.o
+LOAD Out/ln_buf.o
+LOAD Out/ln_sw_uart.o
+LOAD Out/ln_interface.o
+LOAD Out/TcpIp.o
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x2c1a
+ *(.vectors)
+ .vectors       0x00000000       0x68 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000068                . = ALIGN (0x2)
+                0x00000068                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000068        0x0 linker stubs
+ *(.trampolines*)
+                0x00000068                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000068                __ctors_start = .
+ *(.ctors)
+                0x00000068                __ctors_end = .
+                0x00000068                __dtors_start = .
+ *(.dtors)
+                0x00000068                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000068        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+                0x00000068                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000068        0xc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000074       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00000074                __do_copy_data
+ .init4         0x0000008a       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x0000008a                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000009a        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ *(.init9)
+ *(.text)
+ .text          0x000000a2        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+                0x000000a2                __vector_22
+                0x000000a2                __vector_1
+                0x000000a2                __vector_24
+                0x000000a2                __vector_12
+                0x000000a2                __bad_interrupt
+                0x000000a2                __vector_6
+                0x000000a2                __vector_3
+                0x000000a2                __vector_23
+                0x000000a2                __vector_25
+                0x000000a2                __vector_13
+                0x000000a2                __vector_17
+                0x000000a2                __vector_19
+                0x000000a2                __vector_7
+                0x000000a2                __vector_5
+                0x000000a2                __vector_4
+                0x000000a2                __vector_9
+                0x000000a2                __vector_2
+                0x000000a2                __vector_21
+                0x000000a2                __vector_15
+                0x000000a2                __vector_8
+                0x000000a2                __vector_14
+                0x000000a2                __vector_18
+                0x000000a2                __vector_20
+ .text          0x000000a6        0x0 Out/Main.o
+ .text          0x000000a6        0x0 Out/EthLocBuffer.o
+ .text          0x000000a6        0x0 Out/enc28j60.o
+ .text          0x000000a6        0x0 Out/uip.o
+ .text          0x000000a6        0x0 Out/uip_arch.o
+ .text          0x000000a6        0x0 Out/uip_arp.o
+ .text          0x000000a6        0x0 Out/delay.o
+ .text          0x000000a6        0x0 Out/nic.o
+ .text          0x000000a6        0x0 Out/UserIo.o
+ .text          0x000000a6        0x0 Out/ln_buf.o
+ .text          0x000000a6        0x0 Out/ln_sw_uart.o
+ .text          0x000000a6        0x0 Out/ln_interface.o
+ .text          0x000000a6        0x0 Out/TcpIp.o
+ .text          0x000000a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x000000a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x000000a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text          0x000000a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
+ .text          0x000000a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+ .text          0x000000a6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega328p.o)
+                0x000000a6                . = ALIGN (0x2)
+ *(.text.*)
+ .text.main     0x000000a6       0x3e Out/Main.o
+                0x000000a6                main
+ .text.ProcessTCPRxByte
+                0x000000e4       0x86 Out/EthLocBuffer.o
+ .text.EthLocBufferTcpRcvEthernet
+                0x0000016a      0x288 Out/EthLocBuffer.o
+                0x0000016a                EthLocBufferTcpRcvEthernet
+ .text.EthLocBufferMain
+                0x000003f2      0x10e Out/EthLocBuffer.o
+                0x000003f2                EthLocBufferMain
+ .text.EthLocBufferInit
+                0x00000500       0x28 Out/EthLocBuffer.o
+                0x00000500                EthLocBufferInit
+ .text.enc28j60ReadOp
+                0x00000528       0x30 Out/enc28j60.o
+                0x00000528                enc28j60ReadOp
+ .text.enc28j60WriteOp
+                0x00000558       0x1a Out/enc28j60.o
+                0x00000558                enc28j60WriteOp
+ .text.enc28j60ReadBuffer
+                0x00000572       0x30 Out/enc28j60.o
+                0x00000572                enc28j60ReadBuffer
+ .text.enc28j60WriteBuffer
+                0x000005a2       0x2c Out/enc28j60.o
+                0x000005a2                enc28j60WriteBuffer
+ .text.enc28j60SetBank
+                0x000005ce       0x52 Out/enc28j60.o
+                0x000005ce                enc28j60SetBank
+ .text.enc28j60Read
+                0x00000620       0x14 Out/enc28j60.o
+                0x00000620                enc28j60Read
+ .text.enc28j60Write
+                0x00000634       0x1c Out/enc28j60.o
+                0x00000634                enc28j60Write
+ .text.nicSetMacAddress
+                0x00000650       0x72 Out/enc28j60.o
+                0x00000650                nicSetMacAddress
+ .text.enc28j60PhyRead
+                0x000006c2       0x46 Out/enc28j60.o
+                0x000006c2                enc28j60PhyRead
+ .text.enc28j60PhyWrite
+                0x00000708       0x32 Out/enc28j60.o
+                0x00000708                enc28j60PhyWrite
+ .text.enc28j60Init
+                0x0000073a      0x12c Out/enc28j60.o
+                0x0000073a                enc28j60Init
+ .text.enc28j60BeginPacketSend
+                0x00000866        0x2 Out/enc28j60.o
+                0x00000866                enc28j60BeginPacketSend
+ .text.enc28j60PacketSend
+                0x00000868       0x88 Out/enc28j60.o
+                0x00000868                enc28j60PacketSend
+ .text.enc28j60EndPacketSend
+                0x000008f0        0x2 Out/enc28j60.o
+                0x000008f0                enc28j60EndPacketSend
+ .text.enc28j60PacketSend2
+                0x000008f2       0xa4 Out/enc28j60.o
+                0x000008f2                enc28j60PacketSend2
+ .text.enc28j60BeginPacketReceive
+                0x00000996       0x92 Out/enc28j60.o
+                0x00000996                enc28j60BeginPacketReceive
+ .text.enc28j60PacketReceive
+                0x00000a28        0xc Out/enc28j60.o
+                0x00000a28                enc28j60PacketReceive
+ .text.enc28j60EndPacketReceive
+                0x00000a34       0x20 Out/enc28j60.o
+                0x00000a34                enc28j60EndPacketReceive
+ .text.enc28j60ReceiveOverflowRecover
+                0x00000a54        0x2 Out/enc28j60.o
+                0x00000a54                enc28j60ReceiveOverflowRecover
+ .text.enc28j60RegDump
+                0x00000a56        0x2 Out/enc28j60.o
+                0x00000a56                enc28j60RegDump
+ .text.uip_init
+                0x00000a58       0xac Out/uip.o
+                0x00000a58                uip_init
+ .text.uip_unlisten
+                0x00000b04       0x5c Out/uip.o
+                0x00000b04                uip_unlisten
+ .text.uip_listen
+                0x00000b60       0x56 Out/uip.o
+                0x00000b60                uip_listen
+ .text.htons    0x00000bb6        0x8 Out/uip.o
+                0x00000bb6                htons
+ .text.uip_add_rcv_nxt
+                0x00000bbe       0x32 Out/uip.o
+ .text.uip_process
+                0x00000bf0      0xb7c Out/uip.o
+                0x00000bf0                uip_process
+ .text.uip_add32
+                0x0000176c       0x8a Out/uip_arch.o
+                0x0000176c                uip_add32
+ .text.uip_chksum
+                0x000017f6       0xa2 Out/uip_arch.o
+                0x000017f6                uip_chksum
+ .text.uip_ipchksum
+                0x00001898        0xe Out/uip_arch.o
+                0x00001898                uip_ipchksum
+ .text.uip_tcpchksum
+                0x000018a6       0xec Out/uip_arch.o
+                0x000018a6                uip_tcpchksum
+ .text.uip_arp_timer
+                0x00001992       0x64 Out/uip_arp.o
+                0x00001992                uip_arp_timer
+ .text.uip_arp_init
+                0x000019f6       0x28 Out/uip_arp.o
+                0x000019f6                uip_arp_init
+ .text.uip_arp_out
+                0x00001a1e      0x1e0 Out/uip_arp.o
+                0x00001a1e                uip_arp_out
+ .text.uip_arp_update
+                0x00001bfe      0x128 Out/uip_arp.o
+ .text.uip_arp_ipin
+                0x00001d26       0x6a Out/uip_arp.o
+                0x00001d26                uip_arp_ipin
+ .text.uip_arp_arpin
+                0x00001d90      0x154 Out/uip_arp.o
+                0x00001d90                uip_arp_arpin
+ .text.delay_ms
+                0x00001ee4       0x12 Out/delay.o
+                0x00001ee4                delay_ms
+ .text.nic_poll
+                0x00001ef6       0x36 Out/nic.o
+                0x00001ef6                nic_poll
+ .text.nic_send
+                0x00001f2c       0x40 Out/nic.o
+                0x00001f2c                nic_send
+ .text.nic_init
+                0x00001f6c        0x6 Out/nic.o
+                0x00001f6c                nic_init
+ .text.UserIoInit
+                0x00001f72       0x28 Out/UserIo.o
+                0x00001f72                UserIoInit
+ .text.UserIoGetJumperStatus
+                0x00001f9a       0x2e Out/UserIo.o
+                0x00001f9a                UserIoGetJumperStatus
+ .text.UserIoMain
+                0x00001fc8       0x8e Out/UserIo.o
+                0x00001fc8                UserIoMain
+ .text.UserIoSetLed
+                0x00002056       0xb2 Out/UserIo.o
+                0x00002056                UserIoSetLed
+ .text.UserIoIpSettingsGet
+                0x00002108      0x19e Out/UserIo.o
+                0x00002108                UserIoIpSettingsGet
+ .text.getLnBufStats
+                0x000022a6        0x6 Out/ln_buf.o
+                0x000022a6                getLnBufStats
+ .text.getLnMsgSize
+                0x000022ac       0x2a Out/ln_buf.o
+                0x000022ac                getLnMsgSize
+ .text.recvLnMsg
+                0x000022d6      0x258 Out/ln_buf.o
+                0x000022d6                recvLnMsg
+ .text.initLnBuf
+                0x0000252e       0x14 Out/ln_buf.o
+                0x0000252e                initLnBuf
+ .text.__vector_10
+                0x00002542       0x64 Out/ln_sw_uart.o
+                0x00002542                __vector_10
+ .text.__vector_11
+                0x000025a6      0x222 Out/ln_sw_uart.o
+                0x000025a6                __vector_11
+ .text.initLocoNetHardware
+                0x000027c8       0x2e Out/ln_sw_uart.o
+                0x000027c8                initLocoNetHardware
+ .text.sendLocoNetPacketTry
+                0x000027f6      0x162 Out/ln_sw_uart.o
+                0x000027f6                sendLocoNetPacketTry
+ .text.sendLocoNet4BytePacketTry
+                0x00002958       0x36 Out/ln_interface.o
+                0x00002958                sendLocoNet4BytePacketTry
+ .text.sendLocoNetPacket
+                0x0000298e       0x60 Out/ln_interface.o
+                0x0000298e                sendLocoNetPacket
+ .text.sendLocoNet4BytePacket
+                0x000029ee       0x34 Out/ln_interface.o
+                0x000029ee                sendLocoNet4BytePacket
+ .text.recvLocoNetPacket
+                0x00002a22        0xe Out/ln_interface.o
+                0x00002a22                recvLocoNetPacket
+ .text.initLocoNet
+                0x00002a30        0xe Out/ln_interface.o
+                0x00002a30                initLocoNet
+ .text.__vector_16
+                0x00002a3e       0x24 Out/TcpIp.o
+                0x00002a3e                __vector_16
+ .text.TcpIpMain
+                0x00002a62       0xee Out/TcpIp.o
+                0x00002a62                TcpIpMain
+ .text.TcpIpInit
+                0x00002b50       0x96 Out/TcpIp.o
+                0x00002b50                TcpIpInit
+ .text.libgcc   0x00002be6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00002be6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00002be6        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.avr-libc
+                0x00002be6       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
+                0x00002be6                memcpy
+ .text.avr-libc
+                0x00002bf8        0xe c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+                0x00002bf8                memset
+ .text.avr-libc
+                0x00002c06       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega328p.o)
+                0x00002c06                __eerd_byte_m328p
+                0x00002c16                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00002c16        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00002c16                exit
+                0x00002c16                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00002c16        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00002c1a                _etext = .
+
+.data           0x00800100       0x36 load address 0x00002c1a
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ .data          0x00800100        0x0 Out/Main.o
+ .data          0x00800100        0x9 Out/EthLocBuffer.o
+ .data          0x00800109        0x0 Out/enc28j60.o
+ .data          0x00800109        0x0 Out/uip.o
+ .data          0x00800109        0x0 Out/uip_arch.o
+ .data          0x00800109        0x0 Out/uip_arp.o
+ .data          0x00800109        0x0 Out/delay.o
+ .data          0x00800109        0x0 Out/nic.o
+ .data          0x00800109        0x0 Out/UserIo.o
+ .data          0x00800109        0x0 Out/ln_buf.o
+ .data          0x00800109        0x0 Out/ln_sw_uart.o
+ .data          0x00800109        0x0 Out/ln_interface.o
+ .data          0x00800109        0x0 Out/TcpIp.o
+ .data          0x00800109        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800109        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800109        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00800109        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
+ .data          0x00800109        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+ .data          0x00800109        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega328p.o)
+ *(.data*)
+ .data.highNibble.1855
+                0x00800109        0x1 Out/EthLocBuffer.o
+ .data.uip_ethaddr
+                0x0080010a        0x6 Out/uip_arp.o
+                0x0080010a                uip_ethaddr
+ *(.rodata)
+ *(.rodata*)
+ .rodata.sentokstring
+                0x00800110        0xb Out/EthLocBuffer.o
+                0x00800110                sentokstring
+ .rodata.digitMap
+                0x0080011b       0x11 Out/EthLocBuffer.o
+                0x0080011b                digitMap
+ .rodata.receiveString
+                0x0080012c        0x9 Out/EthLocBuffer.o
+                0x0080012c                receiveString
+ *(.gnu.linkonce.d*)
+                0x00800136                . = ALIGN (0x2)
+ *fill*         0x00800135        0x1 00
+                0x00800136                _edata = .
+                0x00800136                PROVIDE (__data_end, .)
+
+.bss            0x00800136      0x3c6
+                0x00800136                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800136        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ .bss           0x00800136        0x0 Out/Main.o
+ .bss           0x00800136        0x0 Out/EthLocBuffer.o
+ .bss           0x00800136        0x0 Out/enc28j60.o
+ .bss           0x00800136        0x0 Out/uip.o
+ .bss           0x00800136        0x0 Out/uip_arch.o
+ .bss           0x00800136        0x0 Out/uip_arp.o
+ .bss           0x00800136        0x0 Out/delay.o
+ .bss           0x00800136        0x0 Out/nic.o
+ .bss           0x00800136        0x0 Out/UserIo.o
+ .bss           0x00800136        0x0 Out/ln_buf.o
+ .bss           0x00800136        0x0 Out/ln_sw_uart.o
+ .bss           0x00800136        0x0 Out/ln_interface.o
+ .bss           0x00800136        0x0 Out/TcpIp.o
+ .bss           0x00800136        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x00800136        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800136        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800136        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
+ .bss           0x00800136        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+ .bss           0x00800136        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega328p.o)
+ *(.bss*)
+ .bss.IdenBytes
+                0x00800136        0x1 Out/EthLocBuffer.o
+ .bss.IdenFound
+                0x00800137        0x1 Out/EthLocBuffer.o
+ .bss.sendOk    0x00800138        0x1 Out/EthLocBuffer.o
+ .bss.sendingState
+                0x00800139        0x1 Out/EthLocBuffer.o
+ .bss.sendData  0x0080013a        0x1 Out/EthLocBuffer.o
+ .bss.LoconetPacket.1857
+                0x0080013b        0x2 Out/EthLocBuffer.o
+ .bss.loconetByte.1856
+                0x0080013d        0x1 Out/EthLocBuffer.o
+ .bss.EthLocBufferLocoNet
+                0x0080013e      0x10a Out/EthLocBuffer.o
+ .bss.EthLocBufferTcpIpRocRail
+                0x00800248        0x1 Out/EthLocBuffer.o
+ .bss.EthLocBufferUipTimerCounter
+                0x00800249        0x1 Out/EthLocBuffer.o
+ .bss.EthLocBufferUipArpTimerCounter
+                0x0080024a        0x1 Out/EthLocBuffer.o
+ .bss.LnTxBuffer
+                0x0080024b      0x10a Out/EthLocBuffer.o
+ .bss.dataData  0x00800355       0x46 Out/EthLocBuffer.o
+ .bss.sendDataLen
+                0x0080039b        0x1 Out/EthLocBuffer.o
+ .bss.ipid      0x0080039c        0x2 Out/uip.o
+ .bss.iss       0x0080039e        0x4 Out/uip.o
+ .bss.c         0x008003a2        0x1 Out/uip.o
+ .bss.opt       0x008003a3        0x1 Out/uip.o
+ .bss.tmp16     0x008003a4        0x2 Out/uip.o
+ .bss.arp_table
+                0x008003a6       0x2c Out/uip_arp.o
+ .bss.ipaddr    0x008003d2        0x4 Out/uip_arp.o
+ .bss.i         0x008003d6        0x1 Out/uip_arp.o
+ .bss.c         0x008003d7        0x1 Out/uip_arp.o
+ .bss.arptime   0x008003d8        0x1 Out/uip_arp.o
+ .bss.tmpage    0x008003d9        0x1 Out/uip_arp.o
+ .bss.pstLnRxBuffer
+                0x008003da        0x2 Out/ln_interface.o
+ *(COMMON)
+ COMMON         0x008003dc        0x3 Out/enc28j60.o
+                0x008003dc                NextPacketPtr
+                0x008003de                Enc28j60Bank
+ COMMON         0x008003df      0x108 Out/uip.o
+                0x008003df                uip_len
+                0x008003e1                uip_sappdata
+                0x008003e3                uip_acc32
+                0x008003e7                uip_flags
+                0x008003e8                uip_appdata
+                0x008003ea                uip_conn
+                0x008003ec                uip_conns
+                0x00800409                uip_arp_netmask
+                0x0080040d                uip_listenports
+                0x00800413                uip_hostaddr
+                0x00800417                uip_arp_draddr
+                0x0080041b                uip_buf
+                0x008004e5                uip_slen
+ COMMON         0x008004e7        0x6 Out/UserIo.o
+                0x008004e7                UserIoLedStat
+ COMMON         0x008004ed        0xc Out/ln_sw_uart.o
+                0x008004ed                lnTxSuccess
+                0x008004ee                lnTxIndex
+                0x008004ef                lnTxLength
+                0x008004f0                lnCurrentByte
+                0x008004f1                lnCompareTarget
+                0x008004f3                lnRxBuffer
+                0x008004f5                lnState
+                0x008004f6                lnBitCount
+                0x008004f7                lnTxData
+ COMMON         0x008004f9        0x3 Out/TcpIp.o
+                0x008004f9                TcpIpUipTimerCounter
+                0x008004fa                TcpIpUipArpTimerCounter
+                0x008004fc                PROVIDE (__bss_end, .)
+                0x00002c1a                __data_load_start = LOADADDR (.data)
+                0x00002c50                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x008004fc        0x0
+                0x008004fc                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x008004fc                PROVIDE (__noinit_end, .)
+                0x008004fc                _end = .
+                0x008004fc                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x348
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 Out/Main.o
+ .debug_aranges
+                0x00000020       0x38 Out/EthLocBuffer.o
+ .debug_aranges
+                0x00000058       0xb8 Out/enc28j60.o
+ .debug_aranges
+                0x00000110       0x48 Out/uip.o
+ .debug_aranges
+                0x00000158       0x38 Out/uip_arch.o
+ .debug_aranges
+                0x00000190       0x48 Out/uip_arp.o
+ .debug_aranges
+                0x000001d8       0x20 Out/delay.o
+ .debug_aranges
+                0x000001f8       0x30 Out/nic.o
+ .debug_aranges
+                0x00000228       0x40 Out/UserIo.o
+ .debug_aranges
+                0x00000268       0x38 Out/ln_buf.o
+ .debug_aranges
+                0x000002a0       0x38 Out/ln_sw_uart.o
+ .debug_aranges
+                0x000002d8       0x40 Out/ln_interface.o
+ .debug_aranges
+                0x00000318       0x30 Out/TcpIp.o
+
+.debug_pubnames
+                0x00000000      0x7aa
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x1b Out/Main.o
+ .debug_pubnames
+                0x0000001b       0x8b Out/EthLocBuffer.o
+ .debug_pubnames
+                0x000000a6      0x203 Out/enc28j60.o
+ .debug_pubnames
+                0x000002a9      0x122 Out/uip.o
+ .debug_pubnames
+                0x000003cb       0x52 Out/uip_arch.o
+ .debug_pubnames
+                0x0000041d       0x78 Out/uip_arp.o
+ .debug_pubnames
+                0x00000495       0x1f Out/delay.o
+ .debug_pubnames
+                0x000004b4       0x39 Out/nic.o
+ .debug_pubnames
+                0x000004ed       0x85 Out/UserIo.o
+ .debug_pubnames
+                0x00000572       0x51 Out/ln_buf.o
+ .debug_pubnames
+                0x000005c3       0xed Out/ln_sw_uart.o
+ .debug_pubnames
+                0x000006b0       0x87 Out/ln_interface.o
+ .debug_pubnames
+                0x00000737       0x73 Out/TcpIp.o
+
+.debug_info     0x00000000     0x5f82
+ *(.debug_info)
+ .debug_info    0x00000000      0x15c Out/Main.o
+ .debug_info    0x0000015c     0x1271 Out/EthLocBuffer.o
+ .debug_info    0x000013cd      0x4fb Out/enc28j60.o
+ .debug_info    0x000018c8      0x7c1 Out/uip.o
+ .debug_info    0x00002089      0x315 Out/uip_arch.o
+ .debug_info    0x0000239e      0x45a Out/uip_arp.o
+ .debug_info    0x000027f8       0x7a Out/delay.o
+ .debug_info    0x00002872      0x120 Out/nic.o
+ .debug_info    0x00002992      0x324 Out/UserIo.o
+ .debug_info    0x00002cb6      0xf52 Out/ln_buf.o
+ .debug_info    0x00003c08     0x1049 Out/ln_sw_uart.o
+ .debug_info    0x00004c51     0x1008 Out/ln_interface.o
+ .debug_info    0x00005c59      0x329 Out/TcpIp.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000     0x1193
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0xc0 Out/Main.o
+ .debug_abbrev  0x000000c0      0x23c Out/EthLocBuffer.o
+ .debug_abbrev  0x000002fc      0x1c3 Out/enc28j60.o
+ .debug_abbrev  0x000004bf      0x1b8 Out/uip.o
+ .debug_abbrev  0x00000677      0x132 Out/uip_arch.o
+ .debug_abbrev  0x000007a9      0x17c Out/uip_arp.o
+ .debug_abbrev  0x00000925       0x63 Out/delay.o
+ .debug_abbrev  0x00000988       0xb2 Out/nic.o
+ .debug_abbrev  0x00000a3a      0x15b Out/UserIo.o
+ .debug_abbrev  0x00000b95      0x172 Out/ln_buf.o
+ .debug_abbrev  0x00000d07      0x1d7 Out/ln_sw_uart.o
+ .debug_abbrev  0x00000ede      0x18d Out/ln_interface.o
+ .debug_abbrev  0x0000106b      0x128 Out/TcpIp.o
+
+.debug_line     0x00000000     0x2fec
+ *(.debug_line)
+ .debug_line    0x00000000      0x161 Out/Main.o
+ .debug_line    0x00000161      0x501 Out/EthLocBuffer.o
+ .debug_line    0x00000662      0x7b3 Out/enc28j60.o
+ .debug_line    0x00000e15      0xb7c Out/uip.o
+ .debug_line    0x00001991      0x23b Out/uip_arch.o
+ .debug_line    0x00001bcc      0x3b8 Out/uip_arp.o
+ .debug_line    0x00001f84       0x77 Out/delay.o
+ .debug_line    0x00001ffb      0x114 Out/nic.o
+ .debug_line    0x0000210f      0x3e9 Out/UserIo.o
+ .debug_line    0x000024f8      0x272 Out/ln_buf.o
+ .debug_line    0x0000276a      0x494 Out/ln_sw_uart.o
+ .debug_line    0x00002bfe      0x1ce Out/ln_interface.o
+ .debug_line    0x00002dcc      0x220 Out/TcpIp.o
+
+.debug_frame    0x00000000      0x4f0
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x20 Out/Main.o
+ .debug_frame   0x00000020       0x50 Out/EthLocBuffer.o
+ .debug_frame   0x00000070      0x150 Out/enc28j60.o
+ .debug_frame   0x000001c0       0x70 Out/uip.o
+ .debug_frame   0x00000230       0x50 Out/uip_arch.o
+ .debug_frame   0x00000280       0x70 Out/uip_arp.o
+ .debug_frame   0x000002f0       0x20 Out/delay.o
+ .debug_frame   0x00000310       0x40 Out/nic.o
+ .debug_frame   0x00000350       0x60 Out/UserIo.o
+ .debug_frame   0x000003b0       0x50 Out/ln_buf.o
+ .debug_frame   0x00000400       0x50 Out/ln_sw_uart.o
+ .debug_frame   0x00000450       0x60 Out/ln_interface.o
+ .debug_frame   0x000004b0       0x40 Out/TcpIp.o
+
+.debug_str      0x00000000     0x115e
+ *(.debug_str)
+ .debug_str     0x00000000      0x15b Out/Main.o
+                                0x18f (size before relaxing)
+ .debug_str     0x0000015b      0x610 Out/EthLocBuffer.o
+                                0x798 (size before relaxing)
+ .debug_str     0x0000076b      0x1fc Out/enc28j60.o
+                                0x2fc (size before relaxing)
+ .debug_str     0x00000967      0x245 Out/uip.o
+                                0x403 (size before relaxing)
+ .debug_str     0x00000bac       0x5c Out/uip_arch.o
+                                0x1b3 (size before relaxing)
+ .debug_str     0x00000c08      0x10e Out/uip_arp.o
+                                0x275 (size before relaxing)
+ .debug_str     0x00000d16       0x20 Out/delay.o
+                                 0x88 (size before relaxing)
+ .debug_str     0x00000d36       0x2d Out/nic.o
+                                0x119 (size before relaxing)
+ .debug_str     0x00000d63      0x18c Out/UserIo.o
+                                0x2e5 (size before relaxing)
+ .debug_str     0x00000eef       0x72 Out/ln_buf.o
+                                0x4d2 (size before relaxing)
+ .debug_str     0x00000f61       0xd8 Out/ln_sw_uart.o
+                                0x5c2 (size before relaxing)
+ .debug_str     0x00001039       0xcc Out/ln_interface.o
+                                0x5b4 (size before relaxing)
+ .debug_str     0x00001105       0x59 Out/TcpIp.o
+                                0x1ea (size before relaxing)
+
+.debug_loc      0x00000000      0xf84
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x18 Out/Main.o
+ .debug_loc     0x00000018      0x16b Out/EthLocBuffer.o
+ .debug_loc     0x00000183      0x3e8 Out/enc28j60.o
+ .debug_loc     0x0000056b      0x1ae Out/uip.o
+ .debug_loc     0x00000719      0x1b0 Out/uip_arch.o
+ .debug_loc     0x000008c9      0x100 Out/uip_arp.o
+ .debug_loc     0x000009c9       0x58 Out/nic.o
+ .debug_loc     0x00000a21      0x1ae Out/UserIo.o
+ .debug_loc     0x00000bcf      0x158 Out/ln_buf.o
+ .debug_loc     0x00000d27       0xfa Out/ln_sw_uart.o
+ .debug_loc     0x00000e21      0x163 Out/ln_interface.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(Out/GCA101LNUDP.out elf32-avr)
+LOAD linker stubs
+
+.debug_ranges   0x00000000      0x330
+ .debug_ranges  0x00000000       0x18 Out/Main.o
+ .debug_ranges  0x00000018       0x80 Out/EthLocBuffer.o
+ .debug_ranges  0x00000098       0xb0 Out/enc28j60.o
+ .debug_ranges  0x00000148       0x40 Out/uip.o
+ .debug_ranges  0x00000188       0x30 Out/uip_arch.o
+ .debug_ranges  0x000001b8       0x40 Out/uip_arp.o
+ .debug_ranges  0x000001f8       0x18 Out/delay.o
+ .debug_ranges  0x00000210       0x28 Out/nic.o
+ .debug_ranges  0x00000238       0x38 Out/UserIo.o
+ .debug_ranges  0x00000270       0x30 Out/ln_buf.o
+ .debug_ranges  0x000002a0       0x30 Out/ln_sw_uart.o
+ .debug_ranges  0x000002d0       0x38 Out/ln_interface.o
+ .debug_ranges  0x00000308       0x28 Out/TcpIp.o
