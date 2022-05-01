@@ -1,7 +1,7 @@
 # GCA101LbServer
 LbServer (LoconetOverTCP) Firmware for GCA101 ATMEL ATMEGA328P
 
-Depending on the switch settings, you can choose 4 different IP/Mask/Gateway. The board has 3 switches. Pointing towards the connectors means 0, and pointing towards the heat diffuser means 1. The switch number 1 means bit 0, and switch numer 3 (closer to the board led) means bit 2.
+Depending on the switch settings, you can choose 4 different IP/Mask/Gateway. The board has 3 jumpers. Pointing towards the connectors means 0, and pointing towards the heat diffuser means 1. The jumper number 1 means bit 0, and jumper numer 3 (closer to the board led) means bit 2.
 
 Value 7 (111): IP 192.168.0.200 / Mask 255.255.255.0 / Gateway 192.168.0.1
 
