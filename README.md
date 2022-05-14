@@ -1,6 +1,8 @@
 # GCA101LbServer
 LbServer (LoconetOverTCP) Firmware for GCA101 ATMEL ATMEGA328P
 
+Leds blink when waiting for a connection from Rocrail. When Rocrail is connected, the first two show Loconet activity (send and receive) and the third one Ethernet activity.
+
 The board has 3 jumpers. Depending on the jumper settings, you can choose 6 different IP/Mask/Gateway or read this data from the EEPROM (first 12 bytes).
 
 Value 1 (001): IP 192.168.0.200 / Mask 255.255.255.0 / Gateway 192.168.0.1
