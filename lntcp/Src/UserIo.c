@@ -288,14 +288,20 @@ void UserIoSetLed(TUserIoLed Led, TUserIoLedSet Set)
 void UserIoIpSettingsGet(uint8_t * IpAddress, uint8_t * NetMask, uint8_t * RouterIp)
 {
    uint8_t                                 IpAddress_1[4] = { 192, 168, 0, 200 };
-   uint8_t                                 IpAddress_2[4] = { 192, 168, 1, 200 };
-   uint8_t                                 IpAddress_3[4] = { 192, 168, 100, 88 };
+   uint8_t                                 IpAddress_2[4] = { 192, 168, 0, 50};
+   uint8_t                                 IpAddress_3[4] = { 192, 168, 1, 200 };
+   uint8_t                                 IpAddress_4[4] = { 192, 168, 1, 50 };
+   uint8_t                                 IpAddress_5[4] = { 192, 168, 2, 200 };
+   uint8_t                                 IpAddress_6[4] = { 192, 168, 100, 88 };
+   
    uint8_t                                 NetMask_1[4] = { 255, 255, 255, 0 };
-   uint8_t                                 NetMask_2[4] = { 255, 255, 255, 0 };
-   uint8_t                                 NetMask_3[4] = { 255, 255, 255, 0 };
+   
    uint8_t                                 RouterIp_1[4] = { 192, 168, 0, 1 };
-   uint8_t                                 RouterIp_2[4] = { 192, 168, 1, 1 };
-   uint8_t                                 RouterIp_3[4] = { 192, 168, 100, 1 };
+   uint8_t                                 RouterIp_2[4] = { 192, 168, 0, 1 };
+   uint8_t                                 RouterIp_3[4] = { 192, 168, 1, 1 };
+   uint8_t                                 RouterIp_4[4] = { 192, 168, 1, 1 };
+   uint8_t                                 RouterIp_5[4] = { 192, 168, 2, 1 };
+   uint8_t                                 RouterIp_6[4] = { 192, 168, 100, 1 };
 
    uint8_t                                 Jumpers;
    uint8_t                                 Index;
@@ -304,33 +310,44 @@ void UserIoIpSettingsGet(uint8_t * IpAddress, uint8_t * NetMask, uint8_t * Route
 
    switch (Jumpers)
    {
-      case 7:
+      case 1:	  
          memcpy(IpAddress, IpAddress_1, sizeof(IpAddress_1));
          memcpy(NetMask, NetMask_1, sizeof(NetMask_1));
          memcpy(RouterIp, RouterIp_1, sizeof(RouterIp_1));
          break;
-      case 6:
+	  case 2:	  
          memcpy(IpAddress, IpAddress_2, sizeof(IpAddress_2));
-         memcpy(NetMask, NetMask_2, sizeof(NetMask_2));
+         memcpy(NetMask, NetMask_1, sizeof(NetMask_1));
          memcpy(RouterIp, RouterIp_2, sizeof(RouterIp_2));
          break;
-      case 5:
+	  case 3:
          memcpy(IpAddress, IpAddress_3, sizeof(IpAddress_3));
-         memcpy(NetMask, NetMask_3, sizeof(NetMask_3));
+         memcpy(NetMask, NetMask_1, sizeof(NetMask_1));
          memcpy(RouterIp, RouterIp_3, sizeof(RouterIp_3));
          break;
-      case 0:
-         for (Index = 0; Index < 4; Index++)
-         {
-            IpAddress[Index] = eeprom_read_byte((uint8_t *) (USER_IO_EEP_IP_BASE_ADDRES + Index));
-            NetMask[Index] = eeprom_read_byte((uint8_t *) (USER_IO_EEP_IP_BASE_NETMASK + Index));
-            RouterIp[Index] = eeprom_read_byte((uint8_t *) (USER_IO_EEP_IP_BASE_GATEWAY + Index));
-         }
-         break;
-      default:
-         memcpy(IpAddress, IpAddress_1, sizeof(IpAddress_1));
+      case 4:
+         memcpy(IpAddress, IpAddress_4, sizeof(IpAddress_4));
          memcpy(NetMask, NetMask_1, sizeof(NetMask_1));
-         memcpy(RouterIp, RouterIp_1, sizeof(RouterIp_1));
+         memcpy(RouterIp, RouterIp_4, sizeof(RouterIp_4));
+         break;      
+	  case 5:
+         memcpy(IpAddress, IpAddress_5, sizeof(IpAddress_5));
+         memcpy(NetMask, NetMask_1, sizeof(NetMask_1));
+         memcpy(RouterIp, RouterIp_5, sizeof(RouterIp_5));
+         break;
+      case 6:
+         memcpy(IpAddress, IpAddress_6, sizeof(IpAddress_6));
+         memcpy(NetMask, NetMask_1, sizeof(NetMask_1));
+         memcpy(RouterIp, RouterIp_6, sizeof(RouterIp_6));
+         break;      
+		 
+      default: // All switches OFF or ON reads from the EEPROM
+         for (Index = 0; Index < 4; Index++)
+		 {
+			IpAddress[Index] = eeprom_read_byte((uint8_t *) (USER_IO_EEP_IP_BASE_ADDRES + Index));
+			NetMask[Index] = eeprom_read_byte((uint8_t *) (USER_IO_EEP_IP_BASE_NETMASK + Index));
+			RouterIp[Index] = eeprom_read_byte((uint8_t *) (USER_IO_EEP_IP_BASE_GATEWAY + Index));
+		 }
          break;
    }
 }
