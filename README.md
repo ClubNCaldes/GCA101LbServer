@@ -24,4 +24,5 @@ It is provided a file to be burned in the eeprom as an example (./lntcp/EEPROM.h
 LED SIGNALLING:
 
 GCA101 board: LED3 Ethernet receive, LED4 Ethernet send, LED5 Loconet activity. LED3 and LED4 will blink while no rocrail connection is established.
+
 GCA101v2 board: LED3 Ethernet activity, LED4 Loconet activity. LED3 will blink while no rocrail connection is established.
